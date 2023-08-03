@@ -28,3 +28,17 @@ test("renders a <p> with the about text", () => {
   expect(p).toBeInTheDocument();
   expect(p.tagName).toBe("P");
 });
+
+
+import React from "react";
+
+function About({ image="https://via.placeholder.com/215", about }) {
+    return (
+        <aside>
+            <img src={image} alt="blog logo"></img>
+            <p>{about}</p>
+        </aside>
+    );
+}
+
+export default About;

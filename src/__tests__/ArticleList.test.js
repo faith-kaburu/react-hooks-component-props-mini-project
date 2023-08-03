@@ -32,3 +32,20 @@ test("renders a Article component for each post passed as a prop", () => {
   const { container } = render(<ArticleList posts={posts} />);
   expect(container.querySelector("main").children).toHaveLength(3);
 });
+import React from "react";
+import Article from "./Article";
+
+function ArticleList({ posts }) {
+    const articles = posts.map((post) => (
+        <Article 
+            key={post.id}
+            title={post.title}
+            date={post.date}
+            preview={post.preview}
+            minutes={post.minutes}
+        />
+    ));
+    return <main>{articles}</main>    
+}
+
+export default ArticleList;
